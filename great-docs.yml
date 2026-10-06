@@ -7,6 +7,8 @@ homepage: user_guide
 user_guide: docs
 
 # Documentation/tooling only: there is no importable Python library.
+# The supported ecosystem list is empty; Python is only a build dependency.
+project_type: []
 reference: false
 pypi: false
 package_info_page: false

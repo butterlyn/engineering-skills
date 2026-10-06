@@ -11,6 +11,12 @@ The MVP contains one small, clearly labelled demonstration skill,
 - Deployment evidence and behavioral limits: [VERIFICATION.md](VERIFICATION.md)
 - Combined skills.sh Pack: **pending**; see [CURATION.md](CURATION.md)
 
+The initial deployment and live Git/website installer checks succeeded in
+[Actions run 37482305387](https://github.com/butterlyn/engineering-skills/actions/runs/37482305387).
+[Live build provenance](https://butterlyn.github.io/engineering-skills/build-info.json)
+identifies the currently published commit; subsequent pushes run the same checks.
+Actual agent behavior remains unverified for the reasons in `VERIFICATION.md`.
+
 The repository and documentation site publish the same authored skills. The
 separate Pack will curate upstream Matt Pocock skills; his content is neither
 vendored nor republished here.
@@ -77,11 +83,11 @@ directories. It never changes a real project's or global agent's skill files.
 Use `./skills` for local discovery: generated, ignored Great Docs output can
 otherwise be mistaken for another local skill source by the installer.
 
-To verify the actual publication, replace `DEPLOYED_COMMIT_SHA` with the
-intended Actions run's full commit SHA (or read `build-info.json`):
+To verify publication of the current local commit, use this PowerShell command
+after its Actions run succeeds. The commit comparison detects stale deployments:
 
-```bash
-uv run --frozen python scripts/check_live.py --url https://butterlyn.github.io/engineering-skills/ --commit DEPLOYED_COMMIT_SHA
+```powershell
+uv run --frozen python scripts/check_live.py --url https://butterlyn.github.io/engineering-skills/ --commit (git rev-parse HEAD)
 uv run --frozen python scripts/smoke_install.py --source https://github.com/butterlyn/engineering-skills --source https://butterlyn.github.io/engineering-skills/
 ```
 
@@ -114,7 +120,9 @@ byte-identical skills/companions. `build-info.json` records the revision and
 tool versions to expose stale deployments. CI also exercises single-skill and
 whole-collection installation for every target agent.
 
-Great Docs 0.17.0's supported `reference: false` disables Python API generation;
+Great Docs 0.17.0's supported `project_type: []` declares no library ecosystem,
+so build-time Python requirements are not presented as skill requirements.
+`reference: false` disables Python API generation;
 CLI/MCP/changelog, package-info, and PyPI features are also disabled. This
 release uses **root `great-docs.yml` → `great-docs/_site`**. Newer online docs
 describe a different layout. Explicit multi-skill mode copies all companion

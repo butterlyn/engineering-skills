@@ -50,7 +50,8 @@ def main():
         text = markdown.read_text(encoding="utf-8")
         for optional in ("llms.txt", "llms-full.txt"):
             if not (SITE / optional).exists():
-                text = text.replace(f"[{optional}]({optional})<br>", "")
+                text = re.sub(r'\[' + re.escape(optional) + r'\]\(' + re.escape(optional)
+                              + r'\)(?:<br>|\\(?=\r?\n))?', "", text)
         markdown.write_text(text, encoding="utf-8")
     try:
         commit = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True, stderr=subprocess.DEVNULL).strip()

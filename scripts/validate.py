@@ -83,6 +83,7 @@ def validate_skill(directory: Path) -> tuple[dict, dict[str, bytes]]:
 
 def authored(root: Path = ROOT) -> dict[str, tuple[dict, dict[str, bytes]]]:
     config = yaml.safe_load((root / "great-docs.yml").read_text(encoding="utf-8"))
+    require(config.get("project_type") == [], "Documentation-only project must declare no library ecosystem")
     require(config.get("reference") is False, "Documentation-only project needs reference: false")
     for key in ("cli", "go_cli", "rust_cli", "mcp", "changelog"):
         require(config.get(key, {}).get("enabled") is False, f"Disable irrelevant {key} generation")
