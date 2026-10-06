@@ -1,0 +1,37 @@
+---
+title: Verify a change
+---
+
+**Status: demonstration.** This small skill proves the collection's authoring,
+publication, and installation workflow. It is useful when preparing a change
+handoff and deciding what evidence supports a completion claim.
+
+## Setup
+
+Install `verify-a-change` using [Installation](installation.qmd). There are no
+supporting skills, external services, or language-specific tools to configure.
+Your project supplies its own build, test, and inspection commands.
+
+The authoritative instructions live in
+[SKILL.md](https://github.com/butterlyn/engineering-skills/blob/main/skills/verify-a-change/SKILL.md).
+The installed directory also contains an evidence template under `references/`.
+Edit those files in `skills/verify-a-change/` when improving the procedure.
+
+## Examples
+
+Ask your agent: “Use verify-a-change to check this bug fix against the original
+reproduction and tell me which acceptance criteria still lack evidence.”
+
+For a documentation change: “Use verify-a-change to check the built pages and
+installation files, then give me a compact handoff.”
+
+Use the skill selection mechanism your agent supports. Explicitly naming the
+skill and its installed path is a portable fallback when automatic selection
+does not activate it.
+
+## Limitations
+
+This is an evidence-organizing workflow, not an exhaustive engineering library
+or an automatic guarantee of correctness. The agent still needs access to the
+project and tools that exercise the intended behavior. Installing a skill does
+not grant additional permissions or prove behavioral compatibility.

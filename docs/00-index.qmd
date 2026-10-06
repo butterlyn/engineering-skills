@@ -1,0 +1,26 @@
+---
+title: Engineering Skills
+description: A small, maintained collection of engineering and agent-workflow skills by butterlyn.
+---
+
+Practical instructions for engineering work, kept with the files an agent needs
+to use them. The [GitHub repository](https://github.com/butterlyn/engineering-skills)
+is the source of truth; this site publishes the same authored content through
+Great Docs.
+
+The MVP contains **verify-a-change**, a clearly labelled demonstration skill for
+turning a change's acceptance criteria into evidence. It includes its own
+reference template and needs no other installed skill.
+
+```bash
+npx skills add butterlyn/engineering-skills --skill verify-a-change --agent codex
+```
+
+You can also install from this project's documentation URL. See
+[Installation](user-guide/installation.qmd) for all four target agents, discovery, and
+individual or collection installation.
+
+Use [Verify a change](user-guide/verify-a-change.qmd) for examples and limitations, and
+[Contributing](user-guide/contributing.qmd) to add your next authored skill. The
+[combined Pack](user-guide/curation.qmd) is a separate, pending curation entry point;
+Matt Pocock's content is linked upstream and is never hosted here.

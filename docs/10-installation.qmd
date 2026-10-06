@@ -1,0 +1,54 @@
+---
+title: Installation
+---
+
+Install in the project where you want to use the skill. Node 22.20.0 or newer
+and Git are prerequisites for the tested skills CLI. The compatibility checks
+use **skills 1.7.0**; omit the version to use the current release.
+
+## Discover the authored collection
+
+```bash
+npx skills@1.7.0 add butterlyn/engineering-skills --list
+npx skills@1.7.0 add https://butterlyn.github.io/engineering-skills/ --list
+```
+
+## Install one skill
+
+```bash
+npx skills@1.7.0 add butterlyn/engineering-skills --skill verify-a-change --agent codex --copy --yes
+npx skills@1.7.0 add https://butterlyn.github.io/engineering-skills/ --skill verify-a-change --agent codex --copy --yes
+```
+
+The repository and website routes include the skill's reference template and
+license. The direct `skill.md` convenience URL contains only the primary
+instructions; use the collection URL to receive companion files.
+
+Replace `codex` with the appropriate identifier:
+
+| Agent | CLI identifier | Tested project directory |
+|---|---|---|
+| Codex | `codex` | `.agents/skills/` |
+| Claude Code | `claude-code` | `.claude/skills/` |
+| pi-coding-agent | `pi` | `.pi/skills/` |
+| OpenCode | `opencode` | `.agents/skills/` |
+
+## Install the complete authored collection
+
+```bash
+npx skills@1.7.0 add butterlyn/engineering-skills --skill '*' --agent codex claude-code pi opencode --copy --yes
+npx skills@1.7.0 add https://butterlyn.github.io/engineering-skills/ --skill '*' --agent codex claude-code pi opencode --copy --yes
+```
+
+`--copy` avoids symlink requirements. Omit it for the installer's default
+symlink method. These are project installations; adding `--global` changes
+their scope. Our checks use disposable projects and never use `--global`.
+
+Review changes before running `npx skills update`. Git installs are the
+durable fallback if an installer version fails website discovery. Always use
+the full `/engineering-skills/` project URL: the domain root belongs to a
+different Pages scope.
+
+Installation verifies file placement, not that an agent follows the
+instructions. See the repository's [verification record](https://github.com/butterlyn/engineering-skills/blob/main/VERIFICATION.md)
+for executed checks, versions, and behavioral gaps.

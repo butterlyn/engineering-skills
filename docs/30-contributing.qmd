@@ -1,0 +1,37 @@
+---
+title: Contributing
+---
+
+Keep each authored skill authoritative and self-contained. Installation of
+one directory must provide every required local reference and asset.
+
+1. Add `skills/<name>/SKILL.md` with `name` and `description` frontmatter. Use a
+   lowercase hyphenated name matching the directory.
+2. Put required companions inside that directory and link them relatively
+   from the skill. Avoid required references to repository-level docs or
+   uninstalled skills. Include the applicable license with distributed files.
+3. Add `{name: <name>, file: skills/<name>/SKILL.md}` to the `skill.skills` list
+   in the root `great-docs.yml`. This is the explicit publication allowlist.
+4. Add a small human-facing page in `docs/` explaining setup, examples, and
+   limitations, with a link to the authoritative skill. Do not copy its
+   procedure into the page.
+5. Run validation, build, and the isolated installer checks described in the
+   [README](https://github.com/butterlyn/engineering-skills#readme), then open a PR
+   or push to `main`.
+
+Pull requests validate and build without publishing. Pushes to `main` validate,
+build, check the uploaded Pages artifact, deploy, and verify the live content.
+The workflow uses the committed Python lockfile and pinned tooling. Generated
+HTML stays out of Git.
+
+The pinned Great Docs release reads `great-docs.yml` at the repository root and
+writes `great-docs/_site`. Its explicit multi-skill mode copies companions.
+The build helper normalizes Windows manifest separators to URL paths, stamps
+the source revision, and validates the result; Great Docs still generates
+the site and discovery manifest.
+It also removes the release's links to absent API-only `llms` outputs in this
+documentation-only project.
+
+Upgrade documentation dependencies intentionally with `uv lock`, review the
+lockfile, and rerun the full checks. Review upstream Matt Pocock dependencies
+separately in the [curation record](https://github.com/butterlyn/engineering-skills/blob/main/CURATION.md).

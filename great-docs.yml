@@ -1,0 +1,38 @@
+# Great Docs 0.17.0 reads this file at the repository root.
+display_name: Engineering Skills
+repo: https://github.com/butterlyn/engineering-skills
+github_style: icon
+site_url: https://butterlyn.github.io/engineering-skills/
+homepage: user_guide
+user_guide: docs
+
+# Documentation/tooling only: there is no importable Python library.
+reference: false
+pypi: false
+package_info_page: false
+source:
+  enabled: false
+cli:
+  enabled: false
+go_cli:
+  enabled: false
+rust_cli:
+  enabled: false
+mcp:
+  enabled: false
+changelog:
+  enabled: false
+show_dates: false
+show_author: false
+navbar_order:
+  - User Guide
+  - Skills
+
+# Explicit publication allowlist. Add each authored skill here.
+# Paths are relative to the repository root in the pinned release.
+skill:
+  enabled: true
+  well_known: true
+  skills:
+    - name: verify-a-change
+      file: skills/verify-a-change/SKILL.md

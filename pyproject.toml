@@ -1,0 +1,16 @@
+[project]
+name = "engineering-skills-docs"
+version = "0.1.0"
+description = "Documentation and validation tooling for butterlyn's authored engineering skills"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "great-docs==0.17.0",
+    "pyyaml==6.0.3",
+]
+
+[project.urls]
+Repository = "https://github.com/butterlyn/engineering-skills"
+Documentation = "https://butterlyn.github.io/engineering-skills/"
+
+[tool.uv]
+package = false

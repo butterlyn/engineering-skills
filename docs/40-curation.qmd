@@ -1,0 +1,29 @@
+---
+title: Combined Pack
+---
+
+The authored collection and third-party curation have separate entry points.
+This repository and site publish only butterlyn's authored skills. A native
+skills.sh Pack can combine those with chosen upstream Matt Pocock skills.
+
+**Pack status: pending skill selection and Vercel access/authorization.** No
+Pack has been created. The provisional proposal is `tdd` and `codebase-design`,
+with the conditional review/setup dependencies described in the
+[curation record](https://github.com/butterlyn/engineering-skills/blob/main/CURATION.md).
+This proposal is awaiting the owner's choice.
+
+The record has the exact upstream paths, supporting files, setup requirements,
+and remaining steps in the native [Pack builder](https://www.skills.sh/packs/create).
+It is a maintenance document, not a Pack manifest.
+
+Packs require Vercel sign-in. They are unlisted and anyone with the URL can
+view and install them. The builder supports public skill entries, connected
+GitHub sources, and file/folder/ZIP uploads; it omits binary files and individual
+files over 2 MB. Check required companions before creating a Pack. GitHub CLI
+login does not connect Vercel or authorize another service.
+
+The official [Pack documentation](https://www.skills.sh/docs/packs) says new
+installs receive current Pack contents and `npx skills update` refreshes changed
+installed skills. It does not establish automatic synchronization from an
+upstream repository into an existing Pack. Confirm that behavior in the builder
+and recheck the Pack after upstream changes, especially for uploaded snapshots.
